@@ -1,0 +1,49 @@
+### Senha válida
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "ValidPass1!"
+}
+
+# Resposta esperada: 200 OK with {"message": "Senha válida!"}
+
+### Senha inválida - muito curta
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "Short1!"
+}
+
+### Senha inválida - Faltam letras maiúsculas
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "lowercase1!"
+}
+
+### Senha inválida - Faltam letras minúsculas
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "UPPERCASE1!"
+}
+
+### Senha inválida - Dígito ausente
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "NoDigits!"
+}
+
+### Senha inválida - Caractere especial ausente
+POST http://localhost:8080/validate-password
+Content-Type: application/json
+
+{
+  "password": "NoSpecial1"
+}
