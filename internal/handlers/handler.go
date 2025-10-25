@@ -29,5 +29,9 @@ func ValidatePasswordHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	w.WriteHeader(http.StatusNoContent)
+	// Senha válida - retorna mensagem de sucesso
+	response := models.ValidationSuccess{Message: "Senha válida!"}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(response)
 }
